@@ -28,6 +28,7 @@ Build-Depends: debhelper (>= 7.0.50),
  xvfb,
  xauth,
  xfonts-base,
+ humanity-icon-theme,
  hardening-wrapper,
  libxss-dev
 # Disabled optional dependencies:
