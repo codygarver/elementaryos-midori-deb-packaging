@@ -50,8 +50,8 @@ override_dh_auto_configure:
 override_dh_auto_build:
 	$(WAF) build --nocache -v
 
-#override_dh_auto_test:
-#	xvfb-run $(WAF) --nocache check
+override_dh_auto_test:
+	xvfb-run $(WAF) --nocache check
 
 override_dh_auto_install:
 	$(WAF) --nocache install --destdir debian/tmp
