@@ -31,6 +31,7 @@ Build-Depends: debhelper (>= 7.0.50),
  humanity-icon-theme,
  gdb,
  hardening-wrapper,
+ devscripts,
  libxss-dev
 # Disabled optional dependencies:
 Build-Conflicts: gtk-doc-tools,
