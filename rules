@@ -21,6 +21,13 @@ ifneq (0, $(shell test -e $(CONFIG_FILE); echo "$$?"))
 	DISTRO=Debian
 endif
 
+DEBIAN_DIST_VERSION:= $(shell lsb_release -sr)
+CONFIGURE_FLAGS=
+# libzeitgeist-dev on Oneiric is too old
+ifeq (,$(11.10,$(DEBIAN_DIST_VERSION)))
+	CONFIGURE_FLAGS += --disable-zeitgeist
+endif
+
 %:
 	dh $@
 
@@ -45,7 +52,7 @@ override_dh_auto_clean:
 	rm -rf .lock-wscript
 
 override_dh_auto_configure:
-	$(WAF) --nocache configure --debug-level=none --prefix /usr --enable-gtk3 --enable-granite
+	$(WAF) --nocache configure --debug-level=none --prefix /usr --enable-gtk3 --enable-granite $(CONFIGURE_FLAGS)
 
 override_dh_auto_build:
 	$(WAF) build --nocache -v
