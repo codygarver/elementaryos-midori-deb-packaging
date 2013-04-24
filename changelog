@@ -1,3 +1,9 @@
+midori (0.5.0-1~ppwkt1) precise; urgency=low
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementaryos.org>  Thu, 28 Mar 2013 16:15:10 +0100
+
 midori (0.4.7-1~ppwkt1) precise; urgency=low
 
   [Yves-Alexis Perez]
