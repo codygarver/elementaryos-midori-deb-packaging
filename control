@@ -21,7 +21,7 @@ Build-Depends: debhelper (>= 7.0.50),
  python-docutils,
  libsoup2.4-dev (>= 2.25.2),
  libnotify-dev,
- valac (>= 0.10),
+ valac-0.16 | valac (>= 0.16),
  libclutter-gtk-1.0-dev,
  libzeitgeist-dev,
 # For testing under xvfb:
