@@ -1,0 +1,17 @@
+=== modified file 'cmake/ValaPrecompile.cmake'
+--- old/cmake/ValaPrecompile.cmake	2013-08-18 00:47:45 +0000
++++ new/cmake/ValaPrecompile.cmake	2014-01-03 23:49:23 +0000
+@@ -157,11 +157,7 @@
+     set(custom_vapi_arguments "")
+     if(ARGS_CUSTOM_VAPIS)
+         foreach(vapi ${ARGS_CUSTOM_VAPIS})
+-            if(${vapi} MATCHES ${CMAKE_SOURCE_DIR} OR ${vapi} MATCHES ${CMAKE_BINARY_DIR})
+-                list(APPEND custom_vapi_arguments ${vapi})
+-            else (${vapi} MATCHES ${CMAKE_SOURCE_DIR} OR ${vapi} MATCHES ${CMAKE_BINARY_DIR})
+-                list(APPEND custom_vapi_arguments ${CMAKE_CURRENT_SOURCE_DIR}/${vapi})
+-            endif(${vapi} MATCHES ${CMAKE_SOURCE_DIR} OR ${vapi} MATCHES ${CMAKE_BINARY_DIR})
++            list(APPEND custom_vapi_arguments ${vapi})
+         endforeach(vapi ${ARGS_CUSTOM_VAPIS})
+     endif(ARGS_CUSTOM_VAPIS)
+ 
+
