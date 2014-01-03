@@ -1,10 +1,10 @@
-midori (0.5.0-1~ppwkt1) precise; urgency=low
+midori-granite (0.5.6) UNRELEASED; urgency=medium
 
   * New upstream release.
 
- -- Cody Garver <cody@elementaryos.org>  Thu, 28 Mar 2013 16:15:10 +0100
+ -- Rico Tzschichholz <ricotz@ubuntu.com>  Fri, 03 Jan 2014 23:35:42 +0100
 
-midori (0.4.7-1~ppwkt1) precise; urgency=low
+midori (0.5.6-0) precise; urgency=low
 
   [Yves-Alexis Perez]
   * New upstream release.

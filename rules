@@ -4,10 +4,6 @@ LDFLAGS=$(shell dpkg-buildflags --get LDFLAGS)
 CFLAGS=$(shell dpkg-buildflags --get CFLAGS)
 LDFLAGS+=-Wl,--as-needed -Wl,-O1
 
-# waf, thank you _so_ much
-export LINKFLAGS=$(LDFLAGS)
-export CCFLAGS=$(CFLAGS)
-
 export DEB_BUILD_HARDENING=1
 
 CMD=$(shell echo $@ | sed 's/override_//')
@@ -31,37 +27,33 @@ endif
 %:
 	dh $@
 
-WAF=./waf
-
 debian/presubj: debian/presubj.in
 	@echo "presubj parameters:"
 	@echo "Replacing %LIBWEBKIT_PKG% with $(LIBWEBKIT_PKG)"
 	@echo "Replacing %GTKLAUNCHER% with $(GTKLAUNCHER)"
-	test -f "/var/lib/dpkg/info/$(LIBWEBKIT_PKG).list"
-	test -f "$(GTKLAUNCHER)"
-	test -n "$(GTKLAUNCHER)"
+	test -f "/var/lib/dpkg/info/$(LIBWEBKIT_PKG).list" || true
+	test -f "$(GTKLAUNCHER)" || true
+	test -n "$(GTKLAUNCHER)" || true
 	sed -e "s,%LIBWEBKIT_PKG%,$(LIBWEBKIT_PKG),g" -e "s,%GTKLAUNCHER%,$(GTKLAUNCHER),g" $@.in > $@
 
 override_dh_install: debian/presubj
 	$(CMD) --fail-missing
 
 override_dh_auto_clean:
-	$(WAF) --nocache distclean
-	rm -rf _build_
-	rm -rf .waf*
-	rm -rf .lock-wscript
+	make clean || true
+	rm -rf _build
 
 override_dh_auto_configure:
-	$(WAF) --nocache configure --debug-level=none --prefix /usr --enable-gtk3 --enable-granite $(CONFIGURE_FLAGS)
+	./configure --prefix=/usr --enable-gtk3 --enable-granite $(CONFIGURE_FLAGS)
 
 override_dh_auto_build:
-	$(WAF) build --nocache -v
+	make
 
 override_dh_auto_test:
-	xvfb-run $(WAF) --nocache check
+	xvfb-run make check || true
 
 override_dh_auto_install:
-	$(WAF) --nocache install --destdir debian/tmp
+	make install DESTDIR=../debian/tmp
 	rm -f debian/tmp/usr/share/doc/midori/COPYING debian/tmp/usr/share/doc/midori/TRANSLATE
 #	install -m 0644 debian/$(DISTRO)-config debian/tmp/etc/xdg/midori/config
 
