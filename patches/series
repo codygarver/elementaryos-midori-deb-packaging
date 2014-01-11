@@ -1,1 +1,2 @@
 cmake-fix-valaprecompile.patch
+cmake-fix-old-gcc-amd64.patch
