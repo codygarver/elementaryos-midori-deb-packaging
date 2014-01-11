@@ -1,0 +1,10 @@
+--- a/midori/midori-browser.c
++++ b/midori/midori-browser.c
+@@ -3112,7 +3112,6 @@
+ {
+     MidoriContextAction* menu = midori_context_action_new ("ToolbarContextMenu", NULL, NULL, NULL);
+     midori_context_action_add_action_group (menu, browser->action_group);
+-    midori_context_action_add_by_name (menu, "Navigationbar");
+     midori_context_action_add_by_name (menu, "Bookmarkbar");
+     midori_context_action_add_by_name (menu, "Statusbar");
+ 

@@ -1,2 +1,7 @@
 cmake-fix-valaprecompile.patch
 cmake-fix-old-gcc-amd64.patch
+elemos-ddg.patch
+drop-appearance-prefs.patch
+drop-language-prefs.patch
+drop-menubar-toggle.patch
+drop-navigationbar-toggle.patch

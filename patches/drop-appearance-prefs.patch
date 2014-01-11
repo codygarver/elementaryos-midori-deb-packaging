@@ -1,0 +1,44 @@
+--- a/midori/midori-preferences.c
++++ b/midori/midori-preferences.c
+@@ -329,41 +329,6 @@
+     }
+     }
+ 
+-    /* Page "Appearance" */
+-    PAGE_NEW (GTK_STOCK_SELECT_FONT, _("Fonts"));
+-    FRAME_NEW (NULL);
+-    label = gtk_label_new (_("Proportional Font Family"));
+-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+-    INDENTED_ADD (label);
+-    button = katze_property_proxy (settings, "default-font-family", "font");
+-    gtk_widget_set_tooltip_text (button, _("The default font family used to display text"));
+-    SPANNED_ADD (button);
+-    entry = katze_property_proxy (settings, "default-font-size", NULL);
+-    gtk_widget_set_tooltip_text (entry, _("The default font size used to display text"));
+-    SPANNED_ADD (entry);
+-    label = gtk_label_new (_("Fixed-width Font Family"));
+-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+-    INDENTED_ADD (label);
+-    button = katze_property_proxy (settings, "monospace-font-family", "font-monospace");
+-    gtk_widget_set_tooltip_text (button, _("The font family used to display fixed-width text"));
+-    SPANNED_ADD (button);
+-    entry = katze_property_proxy (settings, "default-monospace-font-size", NULL);
+-    gtk_widget_set_tooltip_text (entry, _("The font size used to display fixed-width text"));
+-    SPANNED_ADD (entry);
+-    label = gtk_label_new (_("Minimum Font Size"));
+-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+-    INDENTED_ADD (label);
+-    entry = katze_property_proxy (settings, "minimum-font-size", NULL);
+-    gtk_widget_set_tooltip_text (entry, _("The minimum font size used to display text"));
+-    SPANNED_ADD (entry);
+-    button = katze_property_proxy (settings, "enforce-font-family", NULL);
+-    INDENTED_ADD (button);
+-    label = gtk_label_new (_("Preferred Encoding"));
+-    gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+-    INDENTED_ADD (label);
+-    button = katze_property_proxy (settings, "preferred-encoding", "custom-default-charset");
+-    SPANNED_ADD (button);
+-
+     /* Page "Behavior" */
+     PAGE_NEW (GTK_STOCK_SELECT_COLOR, _("Behavior"));
+     FRAME_NEW (NULL);
