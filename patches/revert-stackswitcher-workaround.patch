@@ -1,0 +1,11 @@
+--- a/katze/katze-preferences.c
++++ b/katze/katze-preferences.c
+@@ -252,7 +252,7 @@
+     #if GTK_CHECK_VERSION (3, 10, 0) & !HAVE_OSX
+     gtk_stack_add_titled (GTK_STACK (priv->notebook), 
+                          priv->page, label, label);
+-    workaround_stack_switcher_sizing (GTK_STACK_SWITCHER (priv->toolbar));
++    //workaround_stack_switcher_sizing (GTK_STACK_SWITCHER (priv->toolbar));
+     #else
+     gtk_notebook_append_page (GTK_NOTEBOOK (priv->notebook),
+                               priv->page, gtk_label_new (label));

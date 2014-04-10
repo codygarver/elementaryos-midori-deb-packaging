@@ -3,3 +3,4 @@ drop-appearance-prefs.patch
 drop-language-prefs.patch
 drop-menubar-toggle.patch
 drop-navigationbar-toggle.patch
+revert-stackswitcher-workaround.patch
