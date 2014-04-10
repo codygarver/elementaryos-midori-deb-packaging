@@ -1,4 +1,10 @@
-midori-granite (0.5.6) UNRELEASED; urgency=medium
+midori-granite (0.5.8) precise; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementaryos.org>  Wed, 09 Apr 2014 21:27:02 -0500
+
+midori-granite (0.5.6) precise; urgency=medium
 
   * New upstream release.
 
